@@ -1,16 +1,14 @@
-import produtos from '../core/constants/products';
+import { ProductItem } from "@/components/Product/productItem";
+import Header from "@/components/Template/Header";
+import { products } from "@/core";
 
 export default function Home() {
   return (
-    <div>
-      {produtos.map(prod=>
-        <div key={prod.id}>
-          <img src={prod.image} alt={prod.name} width={250} height={250}/>
-          <h1>{prod.name}</h1>
-          <p>{prod.description}</p>
-          <pre>{prod.basePrice}</pre>
-        </div>
-      )}
+    <div className="grid grid-cols-4 gap-3 mx-4">
+      {/* <Header/> */}
+      {products.map((prod)=>(
+        <ProductItem key={prod.id} product={prod}/>
+      ))}
     </div>
   );
 }
